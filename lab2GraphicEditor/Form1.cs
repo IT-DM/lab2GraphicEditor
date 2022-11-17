@@ -37,8 +37,6 @@ namespace lab2GraphicEditor
             currentPen = new Pen(Color.Black);   //Инициализация пера с черным цветом
             currentPen.Width = trackBarPen.Value;   //Инициализация толщины пера
             History = new List<Image>();            //Инициализация списка для истории
-
-
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,7 +46,6 @@ namespace lab2GraphicEditor
             Bitmap pic = new Bitmap(878, 551);
             picDrawingSurface.Image = pic;
             History.Add(new Bitmap(picDrawingSurface.Image));
-
         }
 
         private void picDrawingSurface_MouseDown(object sender, MouseEventArgs e)
@@ -59,27 +56,17 @@ namespace lab2GraphicEditor
                 return;
             }
 
-
             drawing = true;
             oldLocation = e.Location;
             currentPath = new GraphicsPath();
 
-
-
-
-
             if (e.Button == MouseButtons.Right)
             {
                 currentPen.Color = Color.White;
-
-
-
-
             }
             else {
                 historyColor = currentPen.Color;
             }
-
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,13 +131,10 @@ namespace lab2GraphicEditor
                 picDrawingSurface.Load(OP.FileName);
 
             picDrawingSurface.AutoSize = true;
-
         }
 
         private void newButton_Click(object sender, EventArgs e)
         {
-
-
             History.Clear();
             historyCounter = 0;
             Bitmap pic = new Bitmap(878, 551);
@@ -268,8 +252,6 @@ namespace lab2GraphicEditor
             {
                 Graphics g = Graphics.FromImage(picDrawingSurface.Image);
 
-
-
                 currentPath.AddLine(oldLocation, e.Location);
                 g.DrawPath(currentPen, currentPath);
                 oldLocation = e.Location;
@@ -348,7 +330,6 @@ namespace lab2GraphicEditor
             ColorDialog colorDialog = new ColorDialog();
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-
                 currentPen.Color = colorDialog.Color;
 
             }
@@ -360,7 +341,6 @@ namespace lab2GraphicEditor
             ColorDialog colorDialog = new ColorDialog();
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-
                 currentPen.Color = colorDialog.Color;
 
             }
